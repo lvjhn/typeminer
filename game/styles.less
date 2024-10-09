@@ -1,0 +1,502 @@
+* {
+    user-select: none;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #555;
+}
+
+button {
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: black; 
+    border: none; 
+    color: white;
+}
+
+button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+button:active {
+    opacity: 0.5;
+}
+
+.right-panel-header {
+    background-color: black;
+    font-weight: bold;
+    color: white; 
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.default-layout {
+    margin: 0px; 
+    top: 0px; 
+    width: 100%;
+    height: 365px;
+    outline: 1px solid black;
+    display: flex;
+
+    > .left-panel {
+        width: 180px; 
+        outline: 1px solid black;   
+        height: 365px;
+
+        > .logo {
+            height: 40px;
+            background-color: black;
+            color: white;
+            display: flex; 
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .resource-indicator {
+            display: flex; 
+
+            .icon {
+                width: 60px;
+                height: 40px;            
+                outline: 1px solid black;   
+                display: flex; 
+                align-items: center;
+                justify-content:  center;
+            }
+
+            .amount {
+                width: 100%;    
+                outline: 1px solid black;
+                text-align: right;
+                align-items: center;
+                justify-content: center;
+                padding-right: 20px;
+                padding-top: 12px;
+            }
+        }
+
+        .aside-section {
+            .convert-btn {
+                width: 90%;
+                border-radius: 5px;
+            }
+
+            .raid-indicator {
+                border: 1px solid black;
+                width: 90%;
+                margin: 0 auto;
+                border-radius: 5px;
+
+                .header {
+                    font-size: 10px;
+                    text-align: center;
+                    background-color: black;
+                    padding: 2.5px;
+                    color: white;
+                    font-weight: bold;
+                }
+
+                .amount {
+                    padding: 10px;
+                    text-align: center;
+                    font-weight: bold;
+                }
+            }
+
+        }
+    }
+
+    > .center-panel {
+        width: 320px; 
+        outline: 1px solid black; 
+        height: 365px;
+        margin-left: -0.5px;
+
+
+        .quarry-indicator {
+            display: flex; 
+
+            .icon {
+                width: 60px; 
+                height: 60px;
+                outline: 1px solid black; 
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    width: 60px; 
+                    height: 60px;
+                }
+            }
+
+            .stats {
+                width: 100%;
+                outline: 1px solid black; 
+
+                .top-line {
+                    display: flex;
+                    padding: 5px;
+
+                    .quarry-text {
+                        flex: 1;
+                        margin-left: 4px;
+                    }
+                
+                    .fix-btn {
+                        width: 100px;
+                        padding: 0px;
+                        margin-right: 5px;
+                        border-radius: 5px;
+                        
+                        button {
+                            padding: 3px;
+                            font-weight: bold;
+                            font-size: 10px;
+                            margin: 0px;
+                        }
+                    }
+                }
+
+                .bottom-line {
+                    .hp-text {
+                        font-size: 10px;
+                        text-align: right;
+                        padding-right: 11px;
+                    }
+
+                    .stat-bar {
+                        margin: 0 auto;
+                    }
+                }
+            }
+        }
+
+        .typing-history {
+            height: 130px; 
+            outline: 1px solid black;
+            margin-top: -0.5px;
+            overflow-y: scroll;
+
+            .typing-history-item {
+                padding: 5px;
+                display: flex;
+
+                .left-side {
+                    display: flex;
+
+                    .amount {
+                        display: flex;
+                        margin-left: 5px;
+                        margin-top: 5px;
+                        font-size: 12px;
+                        font-weight: bold;
+                    }
+                }
+
+                .right-side {
+                    flex: 1;
+                    text-align: right;
+
+                    .word {
+                        margin-top: 5px;
+                        margin-right: 12px;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+
+        .word-input {
+            display: flex; 
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+            outline: 1px solid black;   
+
+            .word {
+                font-size: 18px;    
+                font-weight: bold;
+            }
+        }
+
+        .bonus-indicator {
+            display: flex; 
+            outline: 1px solid black;
+
+            .bonus-label {
+                width: 110px;
+                height: 30px;
+                background-color: black; 
+                color: white; 
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bold; 
+                font-size: 15px;
+            }
+
+            .bonus-multipliers {
+                display: flex;
+
+                > div {
+                    flex: 1;
+                    text-align: center; 
+                    border-left: 1px solid white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 23px;
+                    font-size: 15px;
+                    background-color: black;
+                    color: white
+                }
+            }
+        }
+
+        .reward-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 90px;
+
+            .text { 
+                background-color: rgb(50, 70, 80);
+                width: 300px;
+                height: 70px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 5px;
+                color: white;
+                font-weight: bold;
+            }
+        }
+    }
+
+    > .right-panel {
+        width: 100px; 
+        outline: 1px solid black; 
+        height: 365px;
+        margin-left: 0px;
+
+        .mining-selector {
+            .resource-option {
+                width: 70%;
+                margin: 10px;
+                padding: 5px;
+                padding-top: 7px;
+                font-size: 12px;
+                border: 1px solid black;
+                text-align: center;
+                border-radius: 5px;
+                cursor: pointer; 
+            }
+
+            .resource-option:hover {
+                opacity: 0.8;
+                user-select: none;
+                background-color: rgb(200, 200, 200);
+            }
+
+            .resource-option:active {
+                font-weight: bold;
+                border-width: 1px;
+            }
+
+            .resource-option.selected {
+                background-color: rgb(50, 70, 80);
+                color: white;
+            }
+        }
+    }
+}
+
+.main-menu-screen {
+    > .title {
+        margin-top: 120px;
+        text-align: center;
+    }
+
+    > .main-menu {
+        margin: 0 auto;
+        margin-top: 50px;
+        width: 200px;
+    }
+}
+
+.quarry-screen {
+    > .save-btn {
+        position: relative;
+        margin-top: 0px;
+    }
+
+    > .main-game {
+        position: relative; 
+        top: -50px;
+    }
+}
+
+
+.modal-container {
+    .modal-dimmer {
+        position: relative; 
+        top: -410px;
+        width: 600px; 
+        height: 400px;
+        background-color: black;
+        opacity: 0.9;
+    }
+
+    .main-content {
+        position: relative; 
+        top: -810px;
+        width: 600px; 
+        height: 400px;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        
+        .modal-content {
+            background-color: white;
+            color: black;
+            width: 400px;
+            height: 200px;
+            color: black;
+            border-radius: 5px;
+
+            .header {
+                background-color: rgb(50, 70, 80);
+                border-top-left-radius: 3px;
+                border-top-right-radius: 3px;
+                padding: 5px;
+                color: white;
+                text-align: center;
+                font-weight: bold;
+            }
+
+            button {
+                border-radius: 5px;
+            }
+        }
+    }
+}
+
+.convert-modal {
+    padding: 10px;
+    
+    .convert-from, .convert-to {
+        display: flex;
+    }
+
+    .mode {
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .resource-picker {
+        display: flex;
+        gap: 10px;
+        
+        img {
+            width: 30px;
+            height: 20px;
+        }
+
+        div {
+            border: 2px solid transparent;
+            padding: 2.5px;
+            cursor: pointer;
+        }
+
+        div.selected {
+            border-radius: 5px; 
+            border: 2px solid black;
+        }
+    }
+    
+    input[type="number"] {
+        padding: 5px;
+        width: 100px;
+    }
+
+    .to-label {
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .buttons {
+        display: flex;
+        gap: 5px;
+    }
+
+    
+}
+
+.fix-modal {
+    padding: 20px; 
+
+    .amount {
+        .input-value {
+            display: flex; 
+            
+            input {
+                font-size: 24px;
+                text-align: center;
+                padding: 5px 5px;
+            }
+
+            div {
+                font-size: 25px;
+                display: flex; 
+                align-items: center;
+                justify-content: center;
+                flex: 1;
+                margin-left: 10px;
+            }
+        }
+    }
+
+    .cost {
+        height: 50px; 
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+
+        .text {
+            font-size: 18px;
+        }
+    }
+
+    .buttons {
+        display: flex;
+        gap: 5px;
+    }
+}
