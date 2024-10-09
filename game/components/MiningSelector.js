@@ -40,19 +40,19 @@ const MiningSelector = function () {
                         m(
                             "div", 
                             { 
-                                class: "resource-option" + " " + classes("silver"),
-                                onclick : () => select("silver") 
-                            }, 
-                            "SILVER"
-                        ),
-                        m(
-                            "div", 
-                            { 
                                 class: "resource-option" + " " + classes("bronze"),
                                 onclick : () => select("bronze") 
 
                             }, 
                             "BRONZE"
+                        ),
+                        m(
+                            "div", 
+                            { 
+                                class: "resource-option" + " " + classes("silver"),
+                                onclick : () => select("silver") 
+                            }, 
+                            "SILVER"
                         ),
                         m(
                             "div", 

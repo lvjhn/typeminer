@@ -18,7 +18,7 @@ const ResourceIndicator = function () {
                     "div", 
                     { class : "amount" }, 
                     [
-                        m("div", vnode.attrs.amount)
+                        m("div", vnode.attrs.amount.toFixed(2))
                     ]
                 )
             ])

@@ -5,12 +5,28 @@ const gameState = {
             health : 890,
             mining : "steel",
             word : "parachute",
+            position : 0,
+            time: 3000,
+            lastReward : {
+                mineral: "steel",
+                amount : 0
+            },
             resources : {
                 steel : 1,
                 bronze : 2,
                 silver : 3,
                 gold : 4, 
                 diamond : 5
+            },
+            convert: {
+                from: {
+                    amount : 0, 
+                    mode : "steel"
+                },
+                to : {
+                    amount : 0, 
+                    mode : "bronze"
+                }
             }
         }, 
         raiders : [
@@ -34,10 +50,7 @@ const gameState = {
             }
         ],
         recentWords : [
-            { word: "gold", reward: 3, mode: "silver" },
-            { word: "mineral", reward: 3, mode: "gold" },
-            { word: "watermelon", reward: 3, mode: "bronze" },
-            { word: "elephant", reward: 3, mode: "steel" },
+           
         ]
     }, 
     
@@ -46,7 +59,8 @@ const gameState = {
     },
 
     loadState (key) {
-        localStorage.getItem("SAVE--" + key)
+        this.state = JSON.parse(localStorage.getItem("SAVE--" + key))
+        m.redraw()
     },
 
     listStates () {

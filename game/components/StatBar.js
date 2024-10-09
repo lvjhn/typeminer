@@ -24,7 +24,7 @@ const StatBar = function () {
                     + "px"
                 )
             } else {
-                status = "50px"
+                status = "0px"
             }
 
 

@@ -9,7 +9,16 @@ const BonusIndicator = function() {
                     m("div", { class: "text" }, "BONUS")
                 ]), 
                 m("div", { class: "bonus-bars" }, [
-                    m(StatBar, { width: "210", height: "5", color: "green"}),
+                    m(
+                        StatBar, 
+                        { 
+                            width: 210, 
+                            height: 5, 
+                            color: "green",
+                            status: game.gameState.state.quarry.time,
+                            full: 3000
+                        }
+                    ),
                     m("div", { class: "bonus-multipliers" }, [
                         m("div", { class : "bonus-multiplier" }, m("div", "1x")),
                         m("div", { class : "bonus-multiplier" }, m("div", "2x")),

@@ -1,6 +1,8 @@
 import ModalContent from "/game/components/ModalContent.js"
+import InsufficientFundsModal from "./InsufficientFundsModal.js"
 
 import uiState from "/game/state/ui.js"
+import ConvertedModal from "./ConvertedModal.js"
 
 const ResourcePicker = function () { 
 
@@ -77,15 +79,45 @@ const ResourcePicker = function () {
 }
 
 const ConvertModal = function() {
-
-    let convertFrom = {
-        amount : 0, 
-        mode : "steel"
-    }
-
-    let convertTo = {
-        amount : 0, 
-        mode : "bronze"
+    let convertFrom = {}
+    let convertTo = {}
+    
+    const rates = {
+        "steel" : {
+            "steel"   : 1,
+            "bronze"  : 1 / 3,
+            "silver"  : 1 / 9, 
+            "gold"    : 1 / 27, 
+            "diamond" : 1 / 81
+        },
+        "bronze" : {
+            "steel"   : 3,
+            "bronze"  : 1,
+            "silver"  : 1 / 3, 
+            "gold"    : 1 / 9, 
+            "diamond" : 1 / 81
+        },
+        "silver" : {
+            "steel"   : 9,
+            "bronze"  : 3,
+            "silver"  : 1, 
+            "gold"    : 1 / 3, 
+            "diamond" : 1 / 9
+        },
+        "gold" : {
+            "steel"   : 81,
+            "bronze"  : 9,
+            "silver"  : 3, 
+            "gold"    : 1, 
+            "diamond" : 1 / 3
+        },
+        "diamond" : {
+            "steel"   : 81,
+            "bronze"  : 27,
+            "silver"  : 9, 
+            "gold"    : 3, 
+            "diamond" : 1 
+        }
     }
     
 
@@ -94,14 +126,36 @@ const ConvertModal = function() {
     }
 
     function confirm(vnode) {
+        const resources = game.gameState.state.quarry.resources 
+        const fromMode = convertFrom.mode 
+        const fromAmount = convertFrom.amount 
+        const toAmount = convertTo.amount
+        const toMode = convertTo.mode
+        if(fromAmount <= resources[fromMode]) {
+            game.gameState.state.quarry.resources[fromMode] -= parseFloat(fromAmount)
+            game.gameState.state.quarry.resources[toMode] += parseFloat(toAmount)
+            game.uiState.activeModal = ConvertedModal
+        } else {
+            game.uiState.activeModal = InsufficientFundsModal
+        }
+    }
 
+    function convert(from, to) {
+        const fromMode = from.mode 
+        const toMode = to.mode 
+        const val = (rates[fromMode][toMode] * from.amount).toFixed(2)
+        return val
     }
 
     return {
+        oninit() {
+            convertFrom = game.gameState.state.quarry.convert.from
+            convertTo = game.gameState.state.quarry.convert.to
+        },
+
         view (vnode) {
             const self = this; 
 
-            console.log(self)
 
             return m(ModalContent, {
                 title: "Convert", 
@@ -111,7 +165,11 @@ const ConvertModal = function() {
                             m("input", { 
                                 type: "number", 
                                 min: 0, 
-                                value: convertFrom.amount 
+                                value: convertFrom.amount,
+                                oninput (e)  {
+                                    convertFrom.amount = parseInt(e.target.value)
+                                    convertTo.amount = convert(convertFrom, convertTo)
+                                }
                             })
                         ]), 
                         m("div", { class: "mode" }, [
@@ -119,7 +177,8 @@ const ConvertModal = function() {
                                 selected : convertFrom.mode,
                                 selectMode(mode) {  
                                     console.log(`Selecting mode: ${mode}`)
-                                    convertFrom.mode = mode        
+                                    convertFrom.mode = mode    
+                                    convertTo.amount = convert(convertFrom, convertTo)    
                                 }
                             })
                         ])
@@ -130,7 +189,11 @@ const ConvertModal = function() {
                             m("input", { 
                                 type: "number", 
                                 min: 0, 
-                                value: convertTo.amount
+                                value: convertTo.amount,
+                                oninput (e)  {
+                                    convertTo.amount = parseInt(e.target.value)
+                                    convertFrom.amount = convert(convertTo, convertFrom) 
+                                }                                
                             })
                         ]),
                         m("div", { class: "mode" }, [
@@ -138,7 +201,8 @@ const ConvertModal = function() {
                                 selected : convertTo.mode, 
                                 selectMode(mode) {  
                                     console.log(`Selecting mode: ${mode}`)
-                                    convertTo.mode = mode  
+                                    convertTo.mode = mode
+                                    convertFrom.amount = convert(convertTo, convertFrom) 
                                 }
                             })
                         ])

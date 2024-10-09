@@ -10,7 +10,7 @@ class WordList
     generateWord(min, max) {
         const chance = new Chance() 
         const target = chance.integer({ min: min, max: max }) 
-        const words  = this.byLength[target]
+        const words = this.byLength[target]
         const word = chance.pick(words)
         return word
     }

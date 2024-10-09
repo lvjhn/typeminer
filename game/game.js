@@ -4,11 +4,12 @@ import ModalContainer from "./components/ModalContainer.js"
 import ModalContent from "./components/ModalContent.js"
 
 import FixModal from "./modals/FixModal.js"
+import InsufficientFundsModal from "./modals/InsufficientFundsModal.js"
 
 const Game = {
     oninit() {
         uiState.switchScreen("quarry")
-        uiState.activeModal = null
+        uiState.activeModal = InsufficientFundsModal
     },
 
     view (vnode) {
