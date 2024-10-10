@@ -1,7 +1,8 @@
+import GameOverModal from "../modals/GameOverModal.js"
 import OutOfAmmoModal from "../modals/OutOfAmmoModal.js"
 import gameState from "../state/game.js"
 import EnemyCard from "./EnemyCard.js"
-
+import RaidWonModal from "../modals/RaidWonModal.js"
 
 const BattleArea = function () {
     let words = null 
@@ -87,10 +88,15 @@ const BattleArea = function () {
             weapon = game.quarry.getActiveWeapon()
             raiders = game.quarry.raiders 
 
-            
+            if(game.gameState.state.quarry.health <= 0) {
+                game.uiState.activeModal = GameOverModal
+            }
+
 
             if(hasWon()) {
-                alert("You have won!")
+                game.gameState.state.quarry.raidsSurvived += 1
+                game.gameState.state.quarry.raidTimer = 180
+                game.uiState.activeModal = RaidWonModal
             }
 
             for(let i = 0; i < 4; i++) {

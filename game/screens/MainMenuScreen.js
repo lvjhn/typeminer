@@ -20,6 +20,7 @@ const MainMenuScreen = {
                     { 
                         class: "game-btn",
                         onclick : () => {
+                            game.gameState.initState(),
                             game.uiState.switchScreen("quarry")
                         }
                     }, 

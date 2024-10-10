@@ -35,7 +35,11 @@ const WordInput = function() {
             function classes(i) {
                 if(position > i) {
                     return "correct"
-                } else {
+                }
+                else if(position == i) {
+                    return "active"
+                }
+                else {
                     return ""
                 }
             }

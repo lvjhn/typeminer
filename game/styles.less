@@ -246,6 +246,10 @@ button:active {
             .correct {
                 color: rgb(91, 216, 91);
             }
+
+            .active {
+                color: blue;
+            }
         }
 
         .bonus-indicator {
@@ -654,4 +658,79 @@ button:active {
 
 .enemy-card.selected {
     background-color: rgb(234, 234, 234);
+}
+
+.raid-timer {
+    .timer {
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .text {
+            text-align: center;
+        }
+    }
+}
+
+.load-game {
+    .header {
+        display: flex;
+        height: 30px;
+
+        .back-button {
+            height: 30px;
+            background-color: black;
+            width: 100px;
+            color: white;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            outline: 2px solid black;
+        }
+
+        .back-button:hover {
+            opacity: 0.8;
+        }
+
+        .back-button:active {
+            opacity: 0.6;
+        }
+
+        .title {
+            width: 100%;
+            outline: 2px solid black;
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+        }
+    }
+
+    .saves {
+        padding: 20px;
+        display: flex; 
+        flex-direction: column;
+        gap: 10px;
+        height: 330px;
+        overflow-y: scroll;
+
+        .save-item {
+            border: 2px solid black;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .save-item:hover {
+            opacity: 0.8;
+            background-color: rgb(234, 234, 234);
+        }
+
+        .save-item:active {
+            opacity: 0.5;
+            background-color: rgb(234, 234, 234);
+        }
+    }
 }

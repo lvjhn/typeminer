@@ -6,6 +6,7 @@ import TypingHistory from "../components/TypingHistory.js"
 import WordInput from "../components/WordInput.js"
 import BonusIndicator from "../components/BonusIndicator.js"
 import RewardIndicator from "../components/RewardIndicator.js"
+import RaidTimer from "../components/RaidTimer.js"
 
 const QuarryScreen = {
     view (vnode) {
@@ -19,7 +20,8 @@ const QuarryScreen = {
                     m(RewardIndicator)
                 ],
                 rightContent  : [
-                    m(MiningSelector)
+                    m(MiningSelector),
+                    m(RaidTimer)
                 ]       
             }),
             m(SaveButton, { class : "save-btn" })

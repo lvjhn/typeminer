@@ -1,8 +1,8 @@
 
 const gameState = {
-    state : {
+    origState : {
         quarry : {
-            health : 890,
+            health : 1000,
             mining : "steel",
             word : "parachute",
             position : 0,
@@ -12,6 +12,7 @@ const gameState = {
                 damage: 0, 
                 requirement: 0
             },
+            raidTimer: 180,
             raidsSurvived: 0,
             time: 3000,
             lastReward : {
@@ -19,11 +20,11 @@ const gameState = {
                 amount : 0
             },
             resources : {
-                steel : 1,
-                bronze : 2,
-                silver : 3,
-                gold : 4, 
-                diamond : 5
+                steel : 100,
+                bronze : 100,
+                silver : 100,
+                gold : 100, 
+                diamond : 100
             },
             convert: {
                 from: {
@@ -40,6 +41,10 @@ const gameState = {
            
         ]
     }, 
+
+    initState() {
+        this.state = structuredClone(this.origState)
+    },  
     
     saveState (key) {
         localStorage.setItem("SAVE--" + key, JSON.stringify(this.state))

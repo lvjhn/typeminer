@@ -1,3 +1,4 @@
+import GameOverModal from "../modals/GameOverModal.js";
 import BanditRaider from "./raiders/BanditRaider.js";
 import GoblinRaider from "./raiders/GoblinRaider.js";
 import TrollRaider from "./raiders/TrollRaider.js";
@@ -38,7 +39,6 @@ class Quarry
         game.gameState.state.quarry.health -= damage 
         if(game.gameState.state.quarry.health <= 0) {
             game.gameState.state.quarry.health = 0 
-            alert("Game over.")
         }
     } 
 

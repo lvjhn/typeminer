@@ -8,7 +8,7 @@ import InsufficientFundsModal from "./modals/InsufficientFundsModal.js"
 
 const Game = {
     oninit() {
-        uiState.switchScreen("raid")
+        uiState.switchScreen("load-game")
         uiState.activeModal = null
     },
 
@@ -22,7 +22,7 @@ const Game = {
 }   
 
 window.redrawRoot = function() {
-    m.redraw()12.00
+    m.redraw()
 }
 
 export default Game
