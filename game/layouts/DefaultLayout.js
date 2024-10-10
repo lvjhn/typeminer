@@ -39,17 +39,17 @@ const DefaultLayout = {
                     m("div", [
                         m(
                             "div", 
-                            { class: "gold" }, 
+                            { class: "bronze" }, 
                             m(ResourceIndicator, { 
                                 type: "bronze",
-                                amount: amounts.gold 
+                                amount: amounts.bronze 
                             })
                         )
                     ]),
                     m("div", [
                         m(
                             "div", 
-                            { class: "gold" }, 
+                            { class: "silver" }, 
                             m(ResourceIndicator, { 
                                 type: "silver",
                                 amount: amounts.silver 

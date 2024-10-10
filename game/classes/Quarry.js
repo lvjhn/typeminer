@@ -1,9 +1,93 @@
+import BanditRaider from "./raiders/BanditRaider.js";
+import GoblinRaider from "./raiders/GoblinRaider.js";
+import TrollRaider from "./raiders/TrollRaider.js";
+import BowAndArrowWeapon from "./weapons/BowAndArrowWeapon.js";
+import CrossbowWeapon from "./weapons/CrossbowWeapon.js";
+import GrenadeWeapon from "./weapons/GrenadeWeapon.js";
+import PistolWeapon from "./weapons/PistolWeapon.js";
+import RifleWeapon from "./weapons/RifleWeapon.js";
+import SlingshotWeapon from "./weapons/SlingshotWeapon.js";
 
 class Quarry 
 {
     constructor(game) {
         this.game = game 
         this.timer = null
+
+        this.weapons = {
+            "slingshot" : new SlingshotWeapon(), 
+            "bow-and-arrow" : new BowAndArrowWeapon(), 
+            "crossbow" : new CrossbowWeapon(), 
+            "pistol" : new PistolWeapon(), 
+            "rifle" : new RifleWeapon(), 
+            "grenade" : new GrenadeWeapon()
+        }
+
+        this.raiders = [
+          
+        ]
+
+        this.raidWords = [
+
+        ]
+
+        this.setupWeapons()
+    }
+
+    dealDamage(damage) {
+        game.gameState.state.quarry.health -= damage 
+        if(game.gameState.state.quarry.health <= 0) {
+            game.gameState.state.quarry.health = 0 
+            alert("Game over.")
+        }
+    } 
+
+    getRaidWords() {
+        return this.raidWords
+    }
+
+    newRaidWords() {
+        this.raidWords = []
+        while (!this.raidWordsHasUniqueFirstLetters() || this.raidWords.length == 0) {
+            this.raidWords = []
+            for(let i = 0; i < 4; i++) {
+                this.raidWords.push(this.getActiveWeapon().createWord())
+            }        
+            m.redraw()
+        }
+    }
+
+    newRaid() {
+        this.assignRaiders()
+        this.newRaidWords()
+    }
+
+    raidWordsHasUniqueFirstLetters() {
+        let dictionary = {} 
+        for(let word of this.raidWords) {
+            dictionary[word[0]] = true
+        }
+        return Object.keys(dictionary).length == 4
+    }
+
+    assignRaiders() {
+        this.raiders = []
+        for(let i = 0; i < 4; i++) {
+            const Raider = chance.pick([GoblinRaider, TrollRaider, BanditRaider])
+            const raider = new Raider() 
+            this.raiders.push(raider)
+        }
+    }
+
+    getActiveWeapon() {
+        const weapon = game.gameState.state.quarry.weapon
+        return this.weapons[weapon] 
+    }
+
+    setupWeapons() {
+        for(let weapon in this.weapons) {
+            this.weapons[weapon].bulletType = "steel"
+        }
     }
 
     newWord() {

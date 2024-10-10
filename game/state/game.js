@@ -6,6 +6,13 @@ const gameState = {
             mining : "steel",
             word : "parachute",
             position : 0,
+            weapon : "slingshot", 
+            bulletType : "steel",
+            weaponInfo : {
+                damage: 0, 
+                requirement: 0
+            },
+            raidsSurvived: 0,
             time: 3000,
             lastReward : {
                 mineral: "steel",
@@ -28,27 +35,7 @@ const gameState = {
                     mode : "bronze"
                 }
             }
-        }, 
-        raiders : [
-            {
-                type : "BANDIT",
-                health : 100, 
-                attackRate : 7,
-                damage : 10
-            }, 
-            {
-                type : "GOBLIN", 
-                health : 75, 
-                attackRate : 4, 
-                damage : 3
-            }, 
-            {
-                type : "TROLL",
-                health : 50,
-                attackRate : 2,
-                damage : 1
-            }
-        ],
+        },
         recentWords : [
            
         ]

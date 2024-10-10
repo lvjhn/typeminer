@@ -8,7 +8,7 @@ const RaidIndicator = function () {
                     m("div", "NO. OF RAIDS SURVIVED")
                 ]), 
                 m("div", { class: "amount" }, [
-                    m("div", "20")
+                    m("div", game.gameState.state.quarry.raidsSurvived)
                 ])
             ])
         }

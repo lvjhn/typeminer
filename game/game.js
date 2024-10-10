@@ -8,8 +8,8 @@ import InsufficientFundsModal from "./modals/InsufficientFundsModal.js"
 
 const Game = {
     oninit() {
-        uiState.switchScreen("quarry")
-        uiState.activeModal = InsufficientFundsModal
+        uiState.switchScreen("raid")
+        uiState.activeModal = null
     },
 
     view (vnode) {
@@ -20,5 +20,9 @@ const Game = {
         ]
     }
 }   
+
+window.redrawRoot = function() {
+    m.redraw()12.00
+}
 
 export default Game

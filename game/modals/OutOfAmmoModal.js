@@ -1,24 +1,28 @@
-
+import ConvertModal from "./ConvertModal.js"
 import ModalContent from "/game/components/ModalContent.js"
 
 import uiState from "/game/state/ui.js"
 
-const ConvertedModal = function() {
+const OutOfAmmoModal = function() {
 
-    function ok(vnode) {
+    function close(vnode) {
         uiState.activeModal = null
+    }
+
+    function modify(vnode) {
+        uiState.activeModal = ConvertModal
     }
 
     return {
         view (vnode) {
             return m(ModalContent, {
-                title: "Conversion OK", 
+                title: "Out of Resources", 
                 content : m("div", { class: "fix-modal" }, [
                     m("div", { class: "centered-modal-content" }, [
-                        m("h3", "Successfully converted resources.")
+                        m("h3", "You are out of resources to use this weapon.")
                     ]),
                     m("div", { class: "buttons" }, [
-                        m("button", { class: "ok", onclick: ok }, "OK"), 
+                        m("button", { class: "cancel", onclick: close }, "OK"),
                     ])
                 ])
             })
@@ -26,4 +30,4 @@ const ConvertedModal = function() {
     }
 }
 
-export default ConvertedModal 
+export default OutOfAmmoModal 
