@@ -15,9 +15,9 @@ const EnemyCard = function () {
                 for(let i = 0; i < word.length; i++) {
                     let color = "black"
                     if(vnode.attrs.isEnemy) {
-                        if(activeWordPos > i)
+                        if(activeWordPos >= i)
                             color = "rgb(91, 216, 91)"
-                        else if(activeWordPos == i) 
+                        else if(activeWordPos == i - 1) 
                             color = "blue"
                         else 
                             color = "black"
