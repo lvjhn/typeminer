@@ -8,7 +8,7 @@ import InsufficientFundsModal from "./modals/InsufficientFundsModal.js"
 
 const Game = {
     oninit() {
-        uiState.switchScreen("load-game")
+        uiState.switchScreen("main-menu")
         uiState.activeModal = null
     },
 

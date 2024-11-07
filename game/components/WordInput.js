@@ -5,6 +5,8 @@ const WordInput = function() {
     let position = null
     let time = 3000
     let dirty = false
+    let incorrect = false
+    let toggleIncorrect = false
 
     return {
         oncreate () {
@@ -16,13 +18,27 @@ const WordInput = function() {
                 }
 
                 if(e.key == nextLetter) {
+                    incorrect = false
                     gameState.state.quarry.position += 1
                     m.redraw()
+                    const state = game.gameState.state.quarry; 
 
                     if(position == word.length - 1) {
-                        game.quarry.submitWord(word, parseFloat(((time / 1000) + 1).toFixed(2)))
+                        let reward = parseFloat(((time / 1000) + 1).toFixed(2))   
+                        if(time <= 0) {
+                            reward = 0
+                            state.raidTimer -= 10
+                        }
+                        game.quarry.submitWord(word, reward)
                     }
                     dirty = false
+                }
+
+                else {
+                    const state = game.gameState.state.quarry; 
+                    state.raidTimer -= 5
+                    incorrect = true
+                    toggleIncorrect = !toggleIncorrect
                 }
             })
         },
@@ -36,8 +52,14 @@ const WordInput = function() {
                 if(position > i) {
                     return "correct"
                 }
-                else if(position == i) {
+                else if(position == i && !incorrect) {
                     return "active"
+                }
+                else if(position == i && incorrect && toggleIncorrect) {
+                    return "incorrect-a"
+                }
+                else if(position == i && incorrect && !toggleIncorrect) {
+                    return "incorrect-b"
                 }
                 else {
                     return ""

@@ -112,14 +112,14 @@ class Quarry
         if(start) {
             const self = this;
             this.timer = setInterval(function() {
-                self.game.gameState.state.quarry.time -= 33
+                self.game.gameState.state.quarry.time -= 30
                 if(self.game.gameState.state.quarry.time  <= 0) {
                     self.game.gameState.state.quarry.time  = 0
                     m.redraw()
                     clearInterval(self.timer)
                 }
                 m.redraw()
-            }, 33)
+            }, 30)
         }
     }
 
@@ -167,8 +167,8 @@ class Quarry
         }
     }
 
-    submitWord(word, reward = 1) {
-        const mode   = this.determineMineral(word.length)
+    submitWord(word, reward = 0) {
+        const mode  = this.determineMineral(word.length)
         this.game.gameState.state.quarry.resources[mode] += reward
         this.game.gameState.state.quarry.lastReward = {
             mineral : mode, 

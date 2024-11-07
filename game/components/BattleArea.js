@@ -104,13 +104,15 @@ const BattleArea = function () {
                 if(!raiders[i].attacking)
                     raiders[i].attackTarget()
             }
+
+            const state = gameState.state
             
             
             return m("div", { class: "battle-area"}, [
-                m(EnemyCard, { raider: raiders[0], word: words[0], activeWordPos: activeWordPos[0], class: classes(0) }),
-                m(EnemyCard, { raider: raiders[1], word: words[1], activeWordPos: activeWordPos[1], class: classes(1) }),
-                m(EnemyCard, { raider: raiders[2], word: words[2], activeWordPos: activeWordPos[2], class: classes(2) }),
-                m(EnemyCard, { raider: raiders[3], word: words[3], activeWordPos: activeWordPos[3], class: classes(3) })
+                m(EnemyCard, { raider: raiders[0], word: words[0], activeWordPos: activeWordPos[0], class: classes(0), isEnemy: 0 == activeWord }),
+                m(EnemyCard, { raider: raiders[1], word: words[1], activeWordPos: activeWordPos[1], class: classes(1), isEnemy: 1 == activeWord }),
+                m(EnemyCard, { raider: raiders[2], word: words[2], activeWordPos: activeWordPos[2], class: classes(2), isEnemy: 2 == activeWord }),
+                m(EnemyCard, { raider: raiders[3], word: words[3], activeWordPos: activeWordPos[3], class: classes(3), isEnemy: 3 == activeWord })
             ])
         }
     }

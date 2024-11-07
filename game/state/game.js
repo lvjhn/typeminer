@@ -4,6 +4,7 @@ const gameState = {
         quarry : {
             health : 1000,
             mining : "steel",
+            raidTimer: 120,
             word : "parachute",
             position : 0,
             weapon : "slingshot", 
@@ -37,6 +38,7 @@ const gameState = {
                 }
             }
         },
+        activeEnemy: -1,
         recentWords : [
            
         ]

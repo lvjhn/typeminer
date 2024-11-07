@@ -13,12 +13,22 @@ const EnemyCard = function () {
             function buildLetters() {
                 let letters = []
                 for(let i = 0; i < word.length; i++) {
+                    let color = "black"
+                    if(vnode.attrs.isEnemy) {
+                        if(activeWordPos > i)
+                            color = "rgb(91, 216, 91)"
+                        else if(activeWordPos == i) 
+                            color = "blue"
+                        else 
+                            color = "black"
+                    }   
+
                     letters.push(
                         m(
                             "span", 
                             {
                                 style : {
-                                    color: activeWordPos > i ? "rgb(91, 216, 91)" : "black"
+                                    color: color
                                 }
                             },
                             word[i]
