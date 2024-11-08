@@ -9,7 +9,7 @@ const TypingHistoryItem = function () {
             return m("div", { class: "typing-history-item" }, [
                 m("div", { class: "left-side" }, [
                     m("div", { class: "icon" }, [
-                        m("img", { src: "/assets/" + mode + ".png", width: 30, height: 20 }),
+                        m("img", { src: "assets/" + mode + ".png", width: 30, height: 20 }),
                     ]),
                     m("div", { class: "amount" }, [
                         m("div", "+" + reward)

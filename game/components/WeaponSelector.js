@@ -50,7 +50,7 @@ const WeaponSelector = function () {
                             }, 
                             [
                                 m("div.label", "#1"), 
-                                m("div.image", m("img", { src: "/assets/slingshot.png" }))
+                                m("div.image", m("img", { src: "assets/slingshot.png" }))
                             ]
                         ),
                         m(
@@ -61,7 +61,7 @@ const WeaponSelector = function () {
                             }, 
                             [
                                 m("div.label", "#2"), 
-                                m("div.image", m("img", { src: "/assets/bow-and-arrow.png"}))
+                                m("div.image", m("img", { src: "assets/bow-and-arrow.png"}))
                             ]
                         ),
                         m(
@@ -72,7 +72,7 @@ const WeaponSelector = function () {
                             }, 
                             [
                                 m("div.label", "#3"), 
-                                m("div.image", m("img", { src: "/assets/crossbow.png"}))
+                                m("div.image", m("img", { src: "assets/crossbow.png"}))
                             ]
                         ),
                         m(
@@ -83,7 +83,7 @@ const WeaponSelector = function () {
                             }, 
                             [
                                 m("div.label", "#4"), 
-                                m("div.image", m("img", { src: "/assets/pistol.png"}))
+                                m("div.image", m("img", { src: "assets/pistol.png"}))
                             ]
                         ),
                         m(
@@ -94,7 +94,7 @@ const WeaponSelector = function () {
                             }, 
                             [
                                 m("div.label", "#5"), 
-                                m("div.image", m("img", { src: "/assets/rifle.png"}))
+                                m("div.image", m("img", { src: "assets/rifle.png"}))
                             ]
                         ),
                         m(
@@ -105,7 +105,7 @@ const WeaponSelector = function () {
                             }, 
                             [
                                 m("div.label", "#6"), 
-                                m("div.image", m("img", { src: "/assets/grenade.png"}))
+                                m("div.image", m("img", { src: "assets/grenade.png"}))
                             ]
                         ),
                     ]

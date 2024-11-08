@@ -47,7 +47,7 @@ const BottomBar = function () {
                                 onclick : () => select("steel"),
                                 class : classes("steel")
                             },
-                            m("img", { src: "/assets/steel.png" })
+                            m("img", { src: "assets/steel.png" })
                         ),
                         m(
                             "div",
@@ -55,7 +55,7 @@ const BottomBar = function () {
                                 onclick : () => select("bronze"),
                                 class : classes("bronze")
                             },
-                            m("img", { src: "/assets/bronze.png" })
+                            m("img", { src: "assets/bronze.png" })
                         ),
                         m(
                             "div",
@@ -63,7 +63,7 @@ const BottomBar = function () {
                                 onclick : () => select("silver"),
                                 class : classes("silver")
                             },
-                            m("img", { src: "/assets/silver.png" })
+                            m("img", { src: "assets/silver.png" })
                         ),
                         m(
                             "div",
@@ -71,7 +71,7 @@ const BottomBar = function () {
                                 onclick : () => select("gold"),
                                 class : classes("gold")
                             },
-                            m("img", { src: "/assets/gold.png" })
+                            m("img", { src: "assets/gold.png" })
                         ),
                         m(
                             "div",
@@ -79,7 +79,7 @@ const BottomBar = function () {
                                 onclick : () => select("diamond"),
                                 class : classes("diamond")
                             },
-                            m("img", { src: "/assets/diamond.png" })
+                            m("img", { src: "assets/diamond.png" })
                         )
                     ]),
                     (weapon == "slingshot") && m("div.bullet-picker", [
@@ -89,7 +89,7 @@ const BottomBar = function () {
                                 onclick : () => select("stone"),
                                 class : classes("stone")
                             },
-                            m("img", { src: "/assets/stone.png" })
+                            m("img", { src: "assets/stone.png" })
                         )
                     ])
                 ]

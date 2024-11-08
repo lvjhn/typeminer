@@ -8,8 +8,8 @@ window.game = new Game()
 
 game.gameState.initState()
 
-import WORDLIST from "/assets/words.js"
-import WORDLIST_BY_LENGTH from "/assets/words.by-length.js"
+import WORDLIST from "assets/words.js"
+import WORDLIST_BY_LENGTH from "assets/words.by-length.js"
 
 
 window.chance = new Chance()

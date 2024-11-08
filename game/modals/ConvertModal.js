@@ -31,7 +31,7 @@ const ResourcePicker = function () {
                         },
                         class : classes("steel")
                     },
-                    m("img", { src: "/assets/steel.png" })
+                    m("img", { src: "assets/steel.png" })
                 ),  
                 m(
                     "div", 
@@ -41,7 +41,7 @@ const ResourcePicker = function () {
                         },
                         class : classes("bronze")
                     },
-                    m("img", { src: "/assets/bronze.png" })
+                    m("img", { src: "assets/bronze.png" })
                 ),  
                 m(
                     "div", 
@@ -51,7 +51,7 @@ const ResourcePicker = function () {
                         },
                         class : classes("silver")
                     },
-                    m("img", { src: "/assets/silver.png" })
+                    m("img", { src: "assets/silver.png" })
                 ),  
                 m(
                     "div", 
@@ -61,7 +61,7 @@ const ResourcePicker = function () {
                         },
                         class : classes("gold")
                     },
-                    m("img", { src: "/assets/gold.png" })
+                    m("img", { src: "assets/gold.png" })
                 ),  
                 m(
                     "div", 
@@ -71,7 +71,7 @@ const ResourcePicker = function () {
                         },
                         class : classes("diamond")
                     },
-                    m("img", { src: "/assets/diamond.png" })
+                    m("img", { src: "assets/diamond.png" })
                 ),  
             ])
         }

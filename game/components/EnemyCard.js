@@ -41,7 +41,7 @@ const EnemyCard = function () {
             return m("div", { class: "enemy-card"  }, [
                 m("div.avatar", [
                     m("div.content", [
-                        m("img", { "src" : "/assets/" + raider.type + ".png"}),
+                        m("img", { "src" : "assets/" + raider.type + ".png"}),
                         m("br"),
                         m("b", "DAM " + raider.damage)
                     ])

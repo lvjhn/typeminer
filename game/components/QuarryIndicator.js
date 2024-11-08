@@ -11,7 +11,7 @@ const QuarryIndicator = function () {
 
             return m("div", { class: "quarry-indicator" }, [
                 m("div", { class: "icon" }, [
-                    m("img", { src: "/assets/truck.png"})
+                    m("img", { src: "assets/truck.png"})
                 ]), 
                 m("div", { class: "stats" }, [
                     m("div", { class: "top-line" }, [

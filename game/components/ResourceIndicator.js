@@ -8,7 +8,7 @@ const ResourceIndicator = function () {
                     { class : "icon" }, 
                     [
                         m("img", { 
-                            src: `/assets/${vnode.attrs.type}.png`, 
+                            src: `assets/${vnode.attrs.type}.png`, 
                             width: 30, 
                             height: 20
                         })

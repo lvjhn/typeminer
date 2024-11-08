@@ -1,4 +1,4 @@
-const WORDLIST = require("../assets/words.js")
+const WORDLIST = require("..assets/words.js")
 const fs = require("fs")
 
 const byLength = {}
@@ -14,4 +14,4 @@ for(let i = 0; i < n; i++) {
     byLength[length].push(word)
 }
 
-fs.writeFileSync("./assets/words.by-length.json", JSON.stringify(byLength, null, 4))
+fs.writeFileSync(".assets/words.by-length.json", JSON.stringify(byLength, null, 4))
