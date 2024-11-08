@@ -92,11 +92,18 @@ const BattleArea = function () {
                 game.uiState.activeModal = GameOverModal
             }
 
-
-            if(hasWon()) {
+            function wonFunction() {
                 game.gameState.state.quarry.raidsSurvived += 1
                 game.gameState.state.quarry.raidTimer = 180
+                game.quarry.newWord()
+                game.quarry.resetTimer()
                 game.uiState.activeModal = RaidWonModal
+            }
+
+            setTimeout(wonFunction, 3000)
+
+            if(hasWon()) {
+                wonFunction()
             }
 
             for(let i = 0; i < 4; i++) {

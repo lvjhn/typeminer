@@ -7,40 +7,46 @@ const WordInput = function() {
     let dirty = false
     let incorrect = false
     let toggleIncorrect = false
+    let raidTimer = 0
+
+    function listener(e) {
+        const nextLetter = word[position]
+        
+        if(position == 0 && !dirty) {
+            game.quarry.resetTimer()
+            dirty = true
+        }
+
+        if(e.key == nextLetter) {
+            incorrect = false
+            gameState.state.quarry.position += 1
+            m.redraw()
+            const state = game.gameState.state.quarry; 
+
+            if(position == word.length - 1) {
+                let reward = parseFloat(((time / 1000) + 1).toFixed(2))   
+                if(time <= 0) {
+                    reward = 0
+                    state.raidTimer /= 2
+                }
+                game.quarry.submitWord(word, reward)
+            }
+            dirty = false
+        }
+
+        else {
+            const state = game.gameState.state.quarry; 
+            state.raidTimer -= 5
+            incorrect = true
+            toggleIncorrect = !toggleIncorrect
+        }
+    }
+    
+    window.onkeydown = listener
 
     return {
-        oncreate () {
-            addEventListener("keydown", (e) => {
-                const nextLetter = word[position]
-                if(position == 0 && !dirty) {
-                    game.quarry.resetTimer()
-                    dirty = true
-                }
-
-                if(e.key == nextLetter) {
-                    incorrect = false
-                    gameState.state.quarry.position += 1
-                    m.redraw()
-                    const state = game.gameState.state.quarry; 
-
-                    if(position == word.length - 1) {
-                        let reward = parseFloat(((time / 1000) + 1).toFixed(2))   
-                        if(time <= 0) {
-                            reward = 0
-                            state.raidTimer -= 10
-                        }
-                        game.quarry.submitWord(word, reward)
-                    }
-                    dirty = false
-                }
-
-                else {
-                    const state = game.gameState.state.quarry; 
-                    state.raidTimer -= 5
-                    incorrect = true
-                    toggleIncorrect = !toggleIncorrect
-                }
-            })
+        oninit () {
+           
         },
 
         view (vnode) {

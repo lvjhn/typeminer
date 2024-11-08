@@ -13,7 +13,6 @@ const gameState = {
                 damage: 0, 
                 requirement: 0
             },
-            raidTimer: 180,
             raidsSurvived: 0,
             time: 3000,
             lastReward : {
@@ -38,7 +37,6 @@ const gameState = {
                 }
             }
         },
-        activeEnemy: -1,
         recentWords : [
            
         ]
