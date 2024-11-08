@@ -100,8 +100,6 @@ const BattleArea = function () {
                 game.uiState.activeModal = RaidWonModal
             }
 
-            setTimeout(wonFunction, 3000)
-
             if(hasWon()) {
                 wonFunction()
             }
